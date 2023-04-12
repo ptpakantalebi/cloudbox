@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <body style="background-color: beige;">
+        <center>
+            <label>address: </label><input type="text" id="ADDRESS"><br><br>
+            <label>Folder name: </label><input type="text" id="FOLDER"><button onclick="create_folder()">send</button><br><br>
+            <label>Choose file: </label><input type="file" id="FILE"><button onclick="upload()">send</button><br><br>
+        </center>
+        <script>
+            var username = localStorage.getItem("Username")
+            var password = localStorage.getItem("Password")
+            function upload(){
+                var files = document.getElementById("FILE").files
+                var file = files[0]
+                var reader = new FileReader();
+                reader.onload = function(){
+                    var arrayBuffer = this.result;
+                    var base64 = btoa(
+                        new Uint8Array(arrayBuffer)
+                            .reduce((data, byte) => data + String.fromCharCode(byte), ''));
+                    fetch("/upload",{
+                        method:"POST",
+                        mode:"cors",
+                        headers:{"Content_Type":"application/json","Authorization":"Basic " + btoa(username + ":" + password)},
+                        body:JSON.stringify({"File":"True","FILE":base64,
+                        "file_name":file.name,
+                        "address":document.getElementById("ADDRESS").value,
+                        })
+                    })
+                    .then(response => response.json())
+                }
+                reader.readAsArrayBuffer(file)
+            }
+            function create_folder(){
+                fetch("/upload",{
+                    method:"POST",
+                    mode:"cors",
+                    headers:{"Content_Type":"application/json","Authorization":"Basic " + btoa(username + ":" + password)},
+                    body:JSON.stringify({
+                        "File":"False",
+                        "folder_name":document.getElementById("FOLDER").value,
+                        "address":document.getElementById("ADDRESS").value,
+                    })
+                })
+                .then(response => response.json())
+            }
+        </script>
+    </body>
+</html>

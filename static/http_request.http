@@ -1,0 +1,15 @@
+POST https:/127.0.0.1:443/home/upload
+Content-Type: application/json
+
+{
+    "name":"pakan"
+}
+
+###
+POST http:/127.0.0.1:443/home/upload
+Content-Type: "application/json"
+
+{
+    "name":"pakan.txt",
+    "file_byte":"15"
+}

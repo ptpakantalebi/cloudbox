@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <center>
+            <label for="name">Username: </label><input type="text" id="name" required/><br><br>
+            <label for="Email">Email:</label><input type="email" id="Email" required/><br><br>
+            <label for="Password">Password: </label><input type="password" id="pwd" required/><br><br>
+            <button onclick="my_func()">send</button>
+            <h3>have an account?<a href="login">sign in</a></h3>
+        </center>
+        <script>
+            function my_func(){
+                localStorage.setItem("Username", document.getElementById("name").value)
+                localStorage.setItem("Password", document.getElementById("pwd").value)
+                fetch("/sign_up",{
+                    method:"POST",
+                    mode:"cors",
+                    headers:{"Content_Type":"application/json"},
+                    body:JSON.stringify({"Username":document.getElementById("name").value,"Email":document.getElementById("Email").value,"Pwd":document.getElementById("pwd").value})
+                })
+                .then(response => response.json())
+                .then(data => window.location.href = document.location.origin+data.page)
+                alert("your sign up was successfully")
+            }
+        </script>
+    </body>
+</html>
