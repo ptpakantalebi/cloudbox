@@ -60,39 +60,6 @@ def copy_2():
     else:
         return {"page":"/sign_up"}
     return body
-    # files_list = []
-# folders_list = []
-# def paths(p):
-#     for t in glob.glob(os.path.join(p,"**\\*.*"),recursive=True):
-#         files_list.append(t[len(p)+1:])
-#         address = t[len(p):].split("\\")[1]
-#         for e in range(len(t[len(p):].split("\\")[1:-1])):
-#             folders_list.append(address)
-#             address = os.path.join(address,t[len(p):].split("\\")[1:-1][e])
-# print(paths("F:\Repos\Cloudstorage\SampleInput"))
-# def copy_folder(files,folders,new_path,last_path):
-#     for folder in folders:
-#         if not os.path.exists(os.path.join(new_path,folder)):
-#             os.makedirs(os.path.join(new_path,folder))
-#     for file in files:
-#         copy(os.path.join(last_path,file),os.path.join(new_path,file))
-# copy_folder(files_list,folders_list,"F:\Repos\Cloudstorage\Sample output","F:\Repos\Cloudstorage\SampleInput")
-# files_list = []
-# folders_list = []
-# def paths(p):
-#     for t in glob.glob(os.path.join(p,"**\\*.*"),recursive=True):
-#         files_list.append(t[len(p)+1:])
-#         address = t[len(p):].split("\\")[1]
-#         for e in range(len(t[len(p):].split("\\")[1:-1])):
-#             folders_list.append(address)
-#             address = os.path.join(address,t[len(p):].split("\\")[1:-1][e])
-# print(paths("F:\Repos\Cloudstorage\SampleInput"))
-# def copy_folder(files,folders,new_path,last_path):
-#     for folder in folders:
-#         if not os.path.exists(os.path.join(new_path,folder)):
-#             os.makedirs(os.path.join(new_path,folder))
-#     for file in files:
-#         copy(os.path.join(last_path,file),os.path.join(new_path,file))
-# copy_folder(files_list,folders_list,"F:\Repos\Cloudstorage\Sample output","F:\Repos\Cloudstorage\SampleInput")
+
 if __name__ == '__main__':
     app.run(host="127.0.0.1",port=443,debug=True)
