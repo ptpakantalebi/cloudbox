@@ -1,13 +1,34 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
     <body>
         <center>
+            <div class="card">
+                <div class="card-image">
+                    <figure class="image is-2by1 is-mobile">
+                        <img src="sign up page.jpg">
+                    </figure>
+                </div>
+                <div class="card-content is-overlay">
+                    <!-- <span class="tag is-large is-primary"><em>sign up</em></span><br><br>
+                    <span class="tag is-large is-primary"><label class="label">Username:</label><label class="label">Username:</label><div class="control has-icons-left"><input class="input is-primary" type="text" id="name" required/><span class="icon is-small is-left"><i class="fas fa-user"></i></span></div></span><br><br>
+                    <span class="tag is-large is-primary"><label class="label">Email:</label>
+                    <span><div class="control has-icons-left"><input class="input is-primary" type="email" id="Email" required/><span class="icon is-small is-left"><i class="fas fa-envelope"></i></span></div></span><br><br>
+                    <span class="tag is-large"><label class="label">Password:</label><i class="fas fa-look"></i></span><br><br>
+                    <span><div class="control has-icons-left"><input class="input is-primary" type="password" id="pwd" required/></div></span><br><br>
+                    <span class="tag is-large"><span class="icon is-small is-left"><i class="fas fa-user"></i></span></span> -->
+                </div>
+            </div>
+        </center>
+        <!-- <center>
             <label for="name">Username: </label><input type="text" id="name" required/><br><br>
             <label for="Email">Email:</label><input type="email" id="Email" required/><br><br>
             <label for="Password">Password: </label><input type="password" id="pwd" required/><br><br>
             <button onclick="my_func()">send</button>
             <h3>have an account?<a href="login">sign in</a></h3>
-        </center>
+        </center> -->
         <script>
             function my_func(){
                 localStorage.setItem("Username", document.getElementById("name").value)
@@ -19,8 +40,8 @@
                     body:JSON.stringify({"Username":document.getElementById("name").value,"Email":document.getElementById("Email").value,"Pwd":document.getElementById("pwd").value})
                 })
                 .then(response => response.json())
+                .then(sucess => sucess = alert("your sign up was successfully"))
                 .then(data => window.location.href = document.location.origin+data.page)
-                alert("your sign up was successfully")
             }
         </script>
     </body>

@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    </head>
     <body>
-        <center>
-            <label">Username:</label><input type="text" id="text" required/><br><br>
-            <label>Password:</label><input type="password" id="pwd" required/><br><br>
-            <button onclick="my_func()">send</button>
-            <h3>haven't an account?<a href="sign_up">create account</a></h3>
-        </center>
+        
         <script>
             function my_func(){
                 localStorage.setItem("Username", document.getElementById("text").value)
