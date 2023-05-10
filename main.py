@@ -30,7 +30,7 @@ def check_user(username,password):
 
 @app.route("/signup")
 def get_information():
-    return app.send_static_file("sign up.html")
+    return app.send_static_file("sign_up.html")
 
 @app.route("/signup",methods = ["POST"])
 def create_folder():
@@ -60,6 +60,3 @@ def copy_2():
     else:
         return {"page":"/sign_up"}
     return body
-
-if __name__ == '__main__':
-    app.run(host="127.0.0.1",port=443,debug=True)
